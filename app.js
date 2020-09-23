@@ -61,6 +61,10 @@ function deleteCheck(e){
     if (item.classList[0] == 'complete-btn'){
         const todo = item.parentElement;
         todo.classList.toggle("completed");
+        todo.addEventListener('transitionend', function(){
+            todo.remove();
+        });
+        removeLocalTodos(todo);
     }
 }
 
